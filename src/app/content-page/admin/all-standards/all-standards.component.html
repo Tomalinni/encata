@@ -1,0 +1,50 @@
+<div class="row-fluid">
+  <div align="center" *ngIf="!isLoaded">
+    <div class="loader"></div>
+  </div>
+  <div class="span8" *ngIf="isLoaded">
+
+
+    <div *ngIf="getStandardErrorInfo" class="alert alert-danger">We can not get a list of standards...</div>
+    <div *ngIf="noStandardsInfo" class="alert alert-light" align="center"><b>The list of standards is empty.</b></div>
+
+    <table *ngIf="!noStandardsInfo && !getStandardErrorInfo" class="table">
+      <thead class="thead-default-back">
+      <tr>
+        <th class="th-title" width="20%">Number</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Files</th>
+      </tr>
+      </thead>
+      <tbody class="table-body">
+      <tr *ngFor="let standard of allStandardList">
+        <td width="20%">
+          <a routerLink="/dashboard/standard/{{standard.id}}" class="btn btn-secondary">{{standard.number}}</a>
+        </td>
+        <td><span class="small-text">{{standard.enName}}</span></td>
+
+        <td><span class="small-text">{{standard.enType}}</span></td>
+
+        <td><span class="small-text">{{standard.status}}</span></td>
+
+        <td>
+          <span *ngIf="standard.ruDoc || standard.ruPdf || standard.ruPpt">RU</span>
+          <span *ngIf="standard.ruDoc"><img src="assets/images/doc.svg" (click)="downloadFile(standard.ruDoc)" width="36px"></span>
+          <span *ngIf="standard.ruPdf"><img src="assets/images/pdf.svg" (click)="downloadFile(standard.ruPdf)" width="36px"></span>
+          <span *ngIf="standard.ruPpt"><img src="assets/images/ppt.svg" (click)="downloadFile(standard.ruPpt)" width="36px"></span>
+          <span *ngIf="standard.enDoc || standard.enPdf || standard.enPpt">En</span>
+          <span *ngIf="standard.enDoc"><img src="assets/images/doc.svg" (click)="downloadFile(standard.enDoc)" width="36px"></span>
+          <span *ngIf="standard.enPdf"><img src="assets/images/pdf.svg" (click)="downloadFile(standard.enPdf)" width="36px"></span>
+          <span *ngIf="standard.enPpt"><img src="assets/images/ppt.svg" (click)="downloadFile(standard.enPpt)" width="36px"></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+

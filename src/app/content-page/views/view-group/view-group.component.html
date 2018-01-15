@@ -1,0 +1,221 @@
+<div class="row-fluid">
+
+  <div align="center" *ngIf="!isLoaded">
+    <div class="loader"></div>
+  </div>
+
+  <div class="span8" *ngIf="isLoaded">
+
+    <div class="alert alert-danger" *ngIf="errorInfo">
+      You can not get information about this group.
+    </div>
+
+    <div *ngIf="!errorInfo">
+      <div class="row row-space">
+        <div class="col-md-12 row-space">
+
+          <table class="table">
+            <thead class="thead-default-back">
+            <tr>
+              <td class="th-title">
+                <h3>{{group.name}}</h3>
+                <span class="small-text"><img src="assets/images/file-tree-light.png"></span>
+                <span class="small-text" *ngIf="group.signBranch"><b>Branch</b></span>
+                <span class="small-text" *ngIf="!group.signBranch"><b>No branch</b></span>
+              </td>
+              <td class="th-title" align="right">
+                <span class="small-text" *ngIf="group.head === null"><b>Head:</b> Not Assigned<br/></span>
+                <span class="small-text" *ngIf="group.head != null"><b>Head:</b> {{group.head.lastName}} {{group.head.firstName}} {{group.head.patronymicName}}<br/></span>
+                <span class="small-text" *ngIf="group.deputy === null"><b>Deputy:</b> Not Assigned<br/></span>
+                <span class="small-text" *ngIf="group.deputy != null"><b>Deputy:</b> {{group.deputy.lastName}} {{group.deputy.firstName}} {{group.deputy.patronymicName}}</span>
+              </td>
+            </tr>
+            </thead>
+            <tbody class="table-body">
+            <tr>
+              <td colspan="2">
+                <div class="row">
+                  <div class="col-md-12">
+                    <span class="small-text"><b>Group work schedule:</b></span><br/>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <span class="small-text"><b> Work day: </b></span>
+                    <span class="small-text rs">{{group.workSchedule.workStart.hour}}:{{group.workSchedule.workStart.minute}} -
+          {{group.workSchedule.workEnd.hour}}:{{group.workSchedule.workEnd.minute}}</span>
+
+                    <span class="small-text"><b> First break: </b></span>
+                    <span class="small-text rs">{{group.workSchedule.firstBreakStart.hour}}:{{group.workSchedule.firstBreakStart.minute}} -
+          {{group.workSchedule.firstBreakEnd.hour}}:{{group.workSchedule.firstBreakEnd.minute}}</span>
+
+                    <span class="small-text"><b> Lunch: </b></span>
+                    <span class="small-text rs">{{group.workSchedule.lunchStart.hour.toString()}}:{{group.workSchedule.lunchStart.minute}} -
+          {{group.workSchedule.lunchEnd.hour}}:{{group.workSchedule.lunchEnd.minute}}</span>
+
+                    <span class="small-text"><b> Second break: </b></span>
+                    <span class="small-text rs">{{group.workSchedule.secondBreakStart.hour}}:{{group.workSchedule.secondBreakStart.minute}} -
+          {{group.workSchedule.secondBreakEnd.hour}}:{{group.workSchedule.secondBreakEnd.minute}}</span>
+
+                  </div>
+                </div>
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+      <!--control panel for admin and header-->
+
+      <div *ngIf="isHead || isAdmin" class="row row-space">
+        <div class="col-md-12 row-space">
+
+          <table class="table">
+            <thead class="thead-default-back">
+            <tr>
+              <td class="th-title">
+                <h6>Control</h6>
+              </td>
+            </tr>
+            </thead>
+            <tbody class="table-body">
+            <tr>
+              <td colspan="1">
+
+                <div class="row">
+                  <!--<div class="col-md-12">-->
+
+                  <div class="col-md-3">
+                      <span><a class="btn" (click)="openAddMember()"><img class="control-icons"
+                                                src="assets/images/016-people.png"><br/>Add member</a></span>
+                  </div>
+                  <div class="col-md-3">
+                      <span><a class="btn" (click)="openEditGroup()"><img class="control-icons"
+                                                src="assets/images/003-content.png"><br/>Edit group</a></span>
+                  </div>
+                  <div class="col-md-3">
+                      <span><a class="btn" (click)="openSetHeadDeputy()"><img class="control-icons"
+                                                src="assets/images/005-business-1.png"><br/>Set head/deputy</a></span>
+                  </div>
+                  <div class="col-md-3">
+                      <span><a class="btn" (click)="openViewStandards()"><img class="control-icons"
+                                                src="assets/images/001-folder.png"><br/>View standards</a></span>
+                  </div>
+
+                  <!--</div>-->
+                </div>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!--tables-->
+
+      <div class="row row-space block-height">
+
+        <div class="col-md-4 box-l">
+          <table class="table">
+            <thead class="thead-default-back">
+            <tr>
+              <th class="th-title">Positions</th>
+            </tr>
+            </thead>
+            <!--<div class="table-wrapper">-->
+            <!--<div class="table-scroll" class="ex5">-->
+            <tbody class="table-body">
+            <tr *ngFor="let pos of group.positions">
+              <td>{{pos.name}}</td>
+            </tr>
+            </tbody>
+            <!--</div>-->
+            <!--</div>-->
+          </table>
+        </div>
+
+        <div class="col-md-4 box-m">
+          <table class="table">
+            <thead class="thead-default-back">
+            <tr>
+              <th class="th-title">Active users</th>
+            </tr>
+            </thead>
+            <!--<div class="table-wrapper">-->
+            <!--<div class="table-scroll" class="ex5">-->
+            <tbody class="table-body">
+            <tr *ngFor="let activeUser of group.activeUsers">
+
+              <ng-template #popContent class="popover">
+                <div class="popover-title">
+                Edit <b>{{activeUser.user.firstName}}</b>
+                </div>
+                  <div class="popover-content">
+                    <div class="btn-group" data-toggle="buttons">
+                      <button type="button" class="btn btn-outline-secondary btn-sm"> View</button>
+                      <button type="button" class="btn btn-outline-secondary btn-sm">Edit</button>
+                      <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeActiveStatus(activeUser)">Change status</button>
+                    </div>
+                  </div>
+              </ng-template>
+
+              <td [ngbPopover]="popContent" class="btn-transp btn-secondary"><a><span><b>{{activeUser.user.lastName}} {{activeUser.user.firstName}} {{activeUser.user.patronymicName}}</b></span>
+                <br/>
+                <span class="small-text">{{activeUser.position.name}}</span></a></td>
+            </tr>
+            </tbody>
+            <!--</div>-->
+            <!--</div>-->
+          </table>
+        </div>
+
+        <div class="col-md-4 box-m">
+          <table class="table">
+            <thead class="thead-default-back">
+            <tr>
+              <th class="th-title">Inactive users</th>
+            </tr>
+            </thead>
+            <!--<div class="table-wrapper">-->
+            <!--<div class="table-scroll" class="ex5">-->
+            <tbody class="table-body">
+            <tr *ngFor="let inactiveUser of group.inactiveUsers">
+
+              <ng-template #popContent class="popover">
+                <div class="popover-title">
+                  Edit <b>{{inactiveUser.user.firstName}}</b>
+                </div>
+                <div class="popover-content">
+                  <div class="btn-group" data-toggle="buttons">
+                    <button type="button" class="btn btn-outline-secondary btn-sm">View</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm">Edit</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="changeInactiveStatus(inactiveUser)">Change status</button>
+                  </div>
+                </div>
+              </ng-template>
+
+              <td [ngbPopover]="popContent" class="btn-transp btn-secondary"><a><span><b>{{inactiveUser.user.lastName}} {{inactiveUser.user.firstName}} {{inactiveUser.user.patronymicName}}</b></span>
+                <br/>
+                <span class="small-text">{{inactiveUser.position.name}}</span></a></td>
+            </tr>
+            </tbody>
+            <!--</div>-->
+            <!--</div>-->
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+.wrapper-sidebar {
+  z-index: 1;
+  position: absolute;
+  overflow-y: auto;
+  scrollbar-track-color: #000000;
+  scrollbar-face-color: #6a6a6a;
+}
+
+.wrapper-main-content {
+  width: 100%;
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.wrapper-taskbar {
+  z-index: 1;
+  position: absolute;
+  overflow-y: auto;
+}

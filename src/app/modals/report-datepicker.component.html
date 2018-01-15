@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">Input dates range for report</h4>
+  <button type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="from" [(ngModel)]="from" ngbDatepicker #d1="ngbDatepicker">
+        <button class="input-group-addon" (click)="d1.toggle()" type="button">
+          <img src="../../assets/images/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+        </button>
+      </div>
+    </div>
+    <br><br>
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="to" [(ngModel)]="to" ngbDatepicker #d2="ngbDatepicker">
+        <button class="input-group-addon" (click)="d2.toggle()" type="button">
+          <img src="../../assets/images/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="alert alert-danger col-12" *ngIf="wrongIntervalError">
+    Wrong date interval!
+  </div>
+  <div class="alert alert-danger col-md-12" *ngIf="noScheduleError">
+    User has no schedule for create report
+  </div>
+  <div class="alert alert-danger col-md-12" *ngIf="emptyIntervalError">
+    Empty interval!
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-date" (click)="sendRequest()">Show report</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

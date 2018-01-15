@@ -1,0 +1,120 @@
+<ul class="nav nav-tabs justify-content-center" id="standard-tab-list" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#step1" role="tab" data-toggle="tab">Step 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#step2" role="tab" data-toggle="tab">Step 2</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#step3" role="tab" data-toggle="tab">Step 3</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane in active" id="step1">
+    <form>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <label for="inputNumber">Standard number</label>
+            <input type="text" class="form-control" id="inputNumber" placeholder="Number">
+          </div>
+          <div class="col-3">
+            <label>Status</label>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select status
+              </button>
+              <div class="dropdown-menu" aria-labelledby="statusDropdown">
+                <a class="dropdown-item" href="#">Active</a>
+                <a class="dropdown-item" href="#">Inactive</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <label>Author</label>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select author
+              </button>
+              <div class="dropdown-menu" aria-labelledby="authorDropdown">
+                <a class="dropdown-item" href="#">Petr Petrov</a>
+                <a class="dropdown-item" href="#">Vasily Pupkin</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <label class="text-center">Russian</label>
+          </div>
+          <div class="col-6">
+            <label class="text-center">English</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label>Name</label>
+            <div class="row">
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputNameRu" placeholder="Name">
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputNameEn" placeholder="Name">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label>Annotation</label>
+            <div class="row">
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputAnnotationRu" placeholder="Annotation">
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputAnnotationEn" placeholder="Annotation">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label>Type</label>
+            <div class="row">
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputTypeRu" placeholder="Type">
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control" id="inputTypeEn" placeholder="Type">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div role="tabpanel" class="tab-pane fade" id="step2">
+    <form (ngSubmit)="sendFile(f)" #f="ngForm">
+      <input type="file" name="pic" id="pic" ngModel accept="image/*">
+      <input type="submit">
+    </form>
+
+    <!--    <form>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </form>-->
+
+  </div>
+
+  <div role="tabpanel" class="tab-pane fade" id="step3">three</div>
+</div>
+

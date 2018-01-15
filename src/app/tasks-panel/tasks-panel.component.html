@@ -1,0 +1,39 @@
+<div class="tasks-component-background" id="ex4" [class.tbar-show]="taskbarService.isOpen"
+     [class.tbar-hide]="!taskbarService.isOpen">
+  <div class="full-width">
+
+    <div class="alert alert-danger task-alert" *ngIf="errorTaskList" align="center">
+      Sorry, we can'n get your tasks.<br/>Please contact the server support.
+    </div>
+
+    <div class="alert alert-light task-alert" *ngIf="!haveTasks" align="center">
+      <span class="big-text">You have no tasks.</span><br/><span class="small-text">Your task list is empty.</span>
+    </div>
+
+    <div class="list-group" *ngIf="!errorTaskList && haveTasks">
+      <a class="list-group-item" *ngFor="let mytask of myTaskList" (click)="taskAction(mytask)"
+         [class.activestaus]="mytask.isOpen">
+        <span class="list-group-item-heading"><b>{{mytask.source}}</b></span>
+        <span *ngIf="mytask.isOpen" class="list-group-item-text">{{mytask.description}}</span>
+        <span *ngIf="!mytask.isOpen" class="list-group-item-text">{{mytask.short}}</span>
+        <span *ngIf="mytask.number != null"
+              class="list-group-item-text small-text"><b>Number:</b> {{mytask.number}}</span>
+        <span *ngIf="mytask.author != null"
+              class="list-group-item-text small-text"><b>Author:</b> {{mytask.author}}</span>
+        <span *ngIf="mytask.date != null"
+              class="list-group-item-text small-text"><b>Start date:</b> {{mytask.date}}</span>
+        <span *ngIf="mytask.deadLine != null" class="list-group-item-text small-text"><b>End date:</b> {{mytask.deadLine}}</span>
+        <span *ngIf="mytask.startDate != null" class="list-group-item-text small-text"><b>Start date:</b> {{mytask.startDate}}</span>
+        <span *ngIf="mytask.endDate != null"
+              class="list-group-item-text small-text"><b>End date:</b> {{mytask.endDate}}</span>
+        <span *ngIf="mytask.source === 'PLANFIX' && mytask.isOpen" class="list-group-item-text small-text">
+              <br><a target="_blank" href="{{mytask.link}}" class="btn btn-secondary">Open in PlanFix</a></span>
+        <span *ngIf="mytask.source === '1C' && mytask.isOpen" class="list-group-item-text small-text">
+              <br><a data-target="#taskModal" data-toggle="modal" class="btn btn-secondary"
+                     (click)="openFullDesc(mytask)">Full description</a></span>
+      </a>
+    </div>
+
+
+  </div>
+</div>

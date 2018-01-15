@@ -1,0 +1,326 @@
+{
+  "id": "59cb9ea7a9a98a12e49fc260",
+  "name": "testGroup 4",
+  "head": null,
+  "deputy": null,
+  "positions": [
+    {
+      "id": "59cb9f18a9a98a162cec486b",
+      "name": "second position"
+    }
+  ],
+  "workSchedule": {
+    "id": "59cb9e45a9a98a12e49fc25f",
+    "workStart": {
+      "hour": 10,
+      "minute": 0,
+      "second": 0,
+      "nano": 0
+    },
+    "firstBreakStart": {
+      "hour": 12,
+      "minute": 0,
+      "second": 0,
+      "nano": 0
+    },
+    "firstBreakEnd": {
+      "hour": 12,
+      "minute": 30,
+      "second": 0,
+      "nano": 0
+    },
+    "lunchStart": {
+      "hour": 14,
+      "minute": 30,
+      "second": 0,
+      "nano": 0
+    },
+    "lunchEnd": {
+      "hour": 15,
+      "minute": 30,
+      "second": 0,
+      "nano": 0
+    },
+    "secondBreakStart": {
+      "hour": 17,
+      "minute": 30,
+      "second": 0,
+      "nano": 0
+    },
+    "secondBreakEnd": {
+      "hour": 18,
+      "minute": 0,
+      "second": 0,
+      "nano": 0
+    },
+    "workEnd": {
+      "hour": 20,
+      "minute": 0,
+      "second": 0,
+      "nano": 0
+    }
+  },
+  "activeUsers": [
+    {
+      "user": {
+        "id": "59cbb074a9a98a20ac92fe61",
+        "login": "task_user1",
+        "password": "useruser",
+        "lastName": "Dudin",
+        "patronymicName": "Patronymic",
+        "phone": "2223535",
+        "internalNumber": "erts5433gsazFsef",
+        "email": "a@b.com",
+        "dateOfEmployment": [
+          2017,
+          1,
+          1
+        ],
+        "dateOfDismissal": [
+          2017,
+          5,
+          1
+        ],
+        "status": "ACTIVE",
+        "language": "RUSSIAN",
+        "schedule": {
+          "id": "59cb9e45a9a98a12e49fc25f",
+          "workStart": {
+            "hour": 10,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakStart": {
+            "hour": 12,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakEnd": {
+            "hour": 12,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchStart": {
+            "hour": 14,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchEnd": {
+            "hour": 15,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakStart": {
+            "hour": 17,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakEnd": {
+            "hour": 18,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "workEnd": {
+            "hour": 20,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          }
+        },
+        "roles": [
+          "USER"
+        ],
+        "mainGroup": "59cb9ea7a9a98a12e49fc260",
+        "testingDisabled": true,
+        "remoteAccessAllowed": true
+      },
+      "position": {
+        "id": "59cb9f18a9a98a162cec486b",
+        "name": "second position"
+      }
+    },
+    {
+      "user": null,
+      "position": {
+        "id": "59cb9f18a9a98a162cec486b",
+        "name": "second position"
+      }
+    },
+    {
+      "user": null,
+      "position": {
+        "id": "59cb9f18a9a98a162cec486b",
+        "name": "second position"
+      }
+    },
+    {
+      "user": {
+        "id": "59bfc71fbd12170d18795e5e",
+        "login": "admin",
+        "password": "admin",
+        "firstName": "Yury",
+        "lastName": "Romashko",
+        "patronymicName": null,
+        "phone": null,
+        "internalNumber": null,
+        "email": null,
+        "dateOfEmployment": null,
+        "dateOfDismissal": null,
+        "status": "ACTIVE",
+        "language": null,
+        "schedule": {
+          "id": "59cb9e45a9a98a12e49fc25f",
+          "workStart": {
+            "hour": 10,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakStart": {
+            "hour": 12,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakEnd": {
+            "hour": 12,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchStart": {
+            "hour": 14,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchEnd": {
+            "hour": 15,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakStart": {
+            "hour": 17,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakEnd": {
+            "hour": 18,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "workEnd": {
+            "hour": 20,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          }
+        },
+        "roles": [
+          "ADMIN"
+        ],
+        "mainGroup": null,
+        "testingDisabled": false,
+        "remoteAccessAllowed": false
+      },
+      "position": {
+        "id": "59cb9f18a9a98a162cec486b",
+        "name": "second position"
+      }
+    },
+    {
+      "user": {
+        "id": "59db88c4080a7e21a411dcc5",
+        "login": "asdasd",
+        "password": "asdasd",
+        "firstName": "asd",
+        "lastName": "asd",
+        "patronymicName": "asd",
+        "phone": "asd",
+        "internalNumber": "asd",
+        "email": "asd@asd.com",
+        "dateOfEmployment": [
+          2017,
+          10,
+          9
+        ],
+        "dateOfDismissal": null,
+        "status": "ACTIVE",
+        "language": "RUSSIAN",
+        "schedule": {
+          "id": "59cb9e45a9a98a12e49fc25f",
+          "workStart": {
+            "hour": 10,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakStart": {
+            "hour": 12,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "firstBreakEnd": {
+            "hour": 12,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchStart": {
+            "hour": 14,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "lunchEnd": {
+            "hour": 15,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakStart": {
+            "hour": 17,
+            "minute": 30,
+            "second": 0,
+            "nano": 0
+          },
+          "secondBreakEnd": {
+            "hour": 18,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          },
+          "workEnd": {
+            "hour": 20,
+            "minute": 0,
+            "second": 0,
+            "nano": 0
+          }
+        },
+        "roles": [
+          "USER"
+        ],
+        "mainGroup": "59cb9ea7a9a98a12e49fc260",
+        "testingDisabled": true,
+        "remoteAccessAllowed": true
+      },
+      "position": {
+        "id": "59cb9f18a9a98a162cec486b",
+        "name": "second position"
+      }
+    }
+  ],
+  "inactiveUsers": [],
+  "signBranch": false
+}

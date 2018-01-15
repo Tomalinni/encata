@@ -1,0 +1,80 @@
+.form-signin {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-primary {
+  background-color: #e31e24;
+  border-color: #e31e24;
+}
+
+.btn-primary:hover {
+  background-color: #ff0000;
+  border-color: #e31e24;
+}
+
+.btn-primary:active {
+  background-color: #cc1b20;
+  border-color: #cc1b20;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.login-help {
+  font-size: 14px;
+}
+
+a {
+  color: #919191;
+}
+
+/*.flex-container {*/
+/*height: calc(100vh - 10rem);*/
+/*padding: 0;*/
+/*margin: 0;*/
+/*display: -webkit-box;*/
+/*display: -moz-box;*/
+/*display: -ms-flexbox;*/
+/*display: -webkit-flex;*/
+/*display: flex;*/
+/*align-items: center;*/
+/*justify-content: center;*/
+/*}*/
+

@@ -1,0 +1,85 @@
+<nav class="sidebar" [class.sbar-show]="sidebarService.isOpen"
+     [class.sbar-hide]="!sidebarService.isOpen" id="ex3">
+
+  <ul class="nav nav-pills flex-column">
+
+    <!--user-->
+    <li class="nav-item navlink" *ngIf="isUser">
+      <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/home">
+        <img src="assets/images/web-page-home.svg"
+             height="16px" width="auto" alt=""> HOME</a>
+    </li>
+    <li class="nav-item navlink">
+      <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/groups">
+        <img src="assets/images/groups.svg"
+             height="16px" width="auto" alt=""> My groups</a>
+    </li>
+    <li class="nav-item navlink">
+      <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/standards">
+        <img src="assets/images/my-standards.svg"
+             height="16px" width="auto" alt=""> My standards</a>
+    </li>
+    <li class="nav-item navlink">
+      <a class="nav-link" style="cursor: pointer;" (click)="openReportDatepicker()">
+        <img src="assets/images/report-time.svg"
+             height="16px" width="auto" alt=""> My report</a>
+    </li>
+
+    <!--head-->
+    <li class="nav-item navlink" *ngIf="isHead">
+      <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/company-structure">
+        <img src="assets/images/company-structure.svg"
+             height="16px" width="auto" alt=""> Company structure</a>
+    </li>
+
+    <!--admin-->
+    <li class="nav-item navlink" *ngIf="isAdmin">
+      <a data-toggle="collapse" class="nav-link" style="cursor: pointer;" data-target="#controlList">CONTROL <img
+        src="assets/images/next-list.svg" height="10px" width="auto" alt=""></a>
+      <ul id="controlList" class="collapse collapse-list">
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/register-user">
+            <img src="assets/images/add-user.svg"
+                 height="16px" width="auto" alt=""> Register user</a>
+        </li>
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/create-group">
+            <img src="assets/images/create-group.svg"
+                 height="16px" width="auto" alt=""> Create division</a>
+        </li>
+
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/create-position">
+            <img src="assets/images/create-group.svg"
+                 height="16px" width="auto" alt=""> Add position</a>
+        </li>
+
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/create-schedule">
+            <img src="assets/images/add-schedule.svg"
+                 height="16px" width="auto" alt=""> Add schedule</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav-item navlink" *ngIf="isAdmin">
+      <a data-toggle="collapse" class="nav-link" style="cursor: pointer;" data-target="#standardList">STANDARDS <img
+        src="assets/images/next-list.svg"
+        height="10px" width="auto" alt=""></a>
+      <ul id="standardList" class="collapse collapse-list">
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/create-standard">
+            <img src="assets/images/add-standard.svg"
+                 height="16px" width="auto" alt=""> Create standard</a>
+        </li>
+        <li class="nav-item navlink" style="list-style: none;">
+          <a class="nav-link" style="cursor: pointer;" routerLink="/dashboard/admin/all-standards">
+            <img src="assets/images/all-standards.svg"
+                 height="16px" width="auto" alt=""> All standards</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+

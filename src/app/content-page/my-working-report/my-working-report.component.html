@@ -1,0 +1,66 @@
+<div class="row-fluid">
+
+  <!--<div align="center" *ngIf="!isLoaded">-->
+  <!--<div class="loader"></div>-->
+  <!--</div>-->
+
+  <!--<div class="span8" *ngIf="isLoaded">-->
+  <div class="component-background">
+    <div class="row">
+      <div class="col-8">
+        <select>
+
+        </select>
+        <ng-template #popContent>
+          <p *ngFor="let username of userNames">{{username}}</p>
+        </ng-template>
+        <button type="button" class="btn btn-outline-secondary" placement="right" popoverTitle="Reported users"
+                [ngbPopover]="popContent">
+          Reported users
+        </button>
+      </div>
+      <div class="col-4">
+
+      </div>
+    </div>
+      <table class="table">
+        <thead class="thead-default">
+        <tr>
+          <th>Beginning of work</th>
+          <th>End of work</th>
+          <th>Number of days</th>
+          <th>Delay, min</th>
+          <th>Number of delays</th>
+          <th>Number of non-outputs</th>
+          <th>Worked, h</th>
+          <th>Processing</th>
+          <th>Average test mark</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let report of reports">
+        <tr class="table-active">
+          <td scope="row" colspan="2">{{report.summaryRecord.username}}</td>
+          <td>{{report.summaryRecord.totalDays}}</td>
+          <td>{{report.summaryRecord.totalDelay}}</td>
+          <td>{{report.summaryRecord.totalDelayedDays}}</td>
+          <td>{{report.summaryRecord.totalAbsent}}</td>
+          <td>{{report.summaryRecord.totalWorkingHours}}</td>
+          <td>{{report.summaryRecord.totalOvertime}}</td>
+          <td>{{report.summaryRecord.averageMark}}</td>
+        </tr>
+        <tr *ngFor="let record of report.records">
+          <td>{{record.startWork}}</td>
+          <td>{{record.endWork}}</td>
+          <td></td>
+          <td><span *ngIf="record.delay != 0">{{record.delay}}</span></td>
+          <td></td>
+          <td><span *ngIf="record.absent == true">1</span></td>
+          <td>{{record.workingHours}}</td>
+          <td><span *ngIf="record.overtimeMinutes != 0">{{record.overtimeMinutes}}</span></td>
+          <td><span *ngIf="record.testingMark != -1">{{record.testingMark}}</span></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  <!--</div>-->
+</div>

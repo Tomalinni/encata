@@ -1,0 +1,44 @@
+<div class="row-fluid">
+
+  <div align="center" *ngIf="!isLoaded">
+    <div class="loader"></div>
+  </div>
+
+  <div class="span8" *ngIf="isLoaded">
+
+    <div class="alert alert-danger" *ngIf="errorInfo">
+      You can not get information about your profile. And we do not know why
+    </div>
+
+    <div class="component-background" *ngIf="!errorInfo">
+      <h3>{{userAPI.firstName}} {{userAPI.lastName}} {{userAPI.patronymicName}}</h3>
+      <hr>
+
+      <h6><b>Login:</b> {{userAPI.login}}</h6>
+      <h6><b>Roles:</b> <span *ngFor="let role of userAPI.roles">{{role}} </span></h6>
+      <h6><b>Internal number:</b> {{userAPI.internalNumber}}</h6>
+
+      <hr *ngIf="userAPI.phone || userAPI.email">
+      <h6 *ngIf="userAPI.phone != null"><b>Phone:</b> {{userAPI.phone}}</h6>
+      <h6 *ngIf="userAPI.email != null"><b>Email:</b> {{userAPI.email}}</h6>
+
+      <hr>
+      <h6><b>Language:</b> {{userAPI.language}}</h6>
+      <h6><b>Date of employment:</b> {{userAPI.dateOfEmployment}}</h6>
+      <h6><b>Schedule:</b> {{userAPI.schedule.workStart.hour}}:{{userAPI.schedule.workStart.minute}}
+        - {{userAPI.schedule.workEnd.hour}}:{{userAPI.schedule.workEnd.minute}}</h6>
+
+      <hr>
+      <h6><b>Status:</b> {{userAPI.status}}</h6>
+      <h6><b>Testing disabled:</b> {{userAPI.testingDisabled}}</h6>
+      <h6><b>Remote access allowed:</b> {{userAPI.remoteAccessAllowed}}</h6>
+
+      <br/>
+      <div class="edit-info"><img src="assets/images/pencil-edit-button.png"> Contact the user with administrator rights
+        to edit your profile.
+      </div>
+
+    </div>
+  </div>
+
+</div>

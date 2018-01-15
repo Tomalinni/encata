@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <h4 class="modal-title">Set Head/Deputy</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="form-group">
+    <label class="control-label">Head</label>
+    <div class="dropdown navlink" appDropdown>
+      <button class="btn btn-block btn-block btn-secondary dropdown-toggle" style="cursor: pointer;"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!--[(ngModel)]= "selectedPosition"-->
+        <span *ngIf="selectedHead">{{selectedHead.firstName + ' ' + selectedHead.lastName}}
+        </span>
+
+      </button>
+      <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+        <li *ngFor="let user of users">
+          <button class="dropdown-item" (click)="selectedH(user)">{{user.firstName + ' ' + user.lastName}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Deputy</label>
+      <div class="dropdown navlink" appDropdown>
+        <button class="btn btn-block btn-block btn-secondary dropdown-toggle" style="cursor: pointer;"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!--[(ngModel)]= "selectedPosition"-->
+        <span *ngIf="selectedDeputy">{{selectedDeputy.firstName + ' ' + selectedDeputy.lastName}}
+        </span>
+
+      </button>
+      <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+        <li *ngFor="let user of users">
+          <button class="dropdown-item" (click)="selectedD(user)">{{user.firstName + ' ' + user.lastName}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert alert-success col-md-6" *ngIf="successInfo">
+    Users successfully set to head and deputy positions
+  </div>
+
+  <div class="alert alert-danger col-md-6" *ngIf="errorInfo">
+    There are some internal errors with request
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="setHeadDeputy()">
+      Set Head/Deputy
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close('Close click')">
+      Cancel
+    </button>
+  </div>
+
+
+

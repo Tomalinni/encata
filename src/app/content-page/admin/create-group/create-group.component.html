@@ -1,0 +1,111 @@
+<div class="component-background">
+
+
+  <form class="well form-horizontal" (ngSubmit)="createDivision(f)" #f="ngForm">
+    <!-- Form Name -->
+    <h3><b>Adding division</b></h3>
+    <hr>
+
+
+    <div class="alert alert-danger col-md-12" *ngIf="errorGetScheduleInfo">
+      Error retrieving schedules list.
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col-md-6">
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="control-label">Division title</label>
+          <div class="input-group">
+            <span class="input-group-addon"></span>
+            <input id="title" name="title" placeholder="Division title" class="form-control" type="text"
+                   ngModel required>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="control-label">Schedule</label>
+          <div class="dropdown navlink" appDropdown>
+            <button class="btn btn-secondary btn-block dropdown-toggle" style="cursor: pointer;"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedScheduleName}}
+            </button>
+            <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+              <li *ngFor="let schedule of schedulesList">
+                <a class="dropdown-item"
+                   (click)="selectedSchedule(schedule.id, schedule.workStart, schedule.workEnd)">
+                  {{schedule.workStart}} - {{schedule.workEnd}}</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="control-label">Branch</label>
+          <div class="dropdown navlink" appDropdown>
+            <button class="btn btn-warning btn-block dropdown-toggle" style="cursor: pointer;"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedBranch}}
+            </button>
+            <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+              <li><a class="dropdown-item"
+                     (click)="selectedBran('Branch')">Branch</a></li>
+              <li><a class="dropdown-item"
+                     (click)="selectedBran('Not branch')">Not branch</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!--<div class="form-group col-md-6">-->
+
+      <!--        <div class="form-group">
+                <label class="control-label">Head</label>
+                <div class="dropdown navlink" appDropdown>
+                  <button class="btn btn-secondary btn-block dropdown-toggle" style="cursor: pointer;"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedHeadName}}
+                  </button>
+                  <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+                    <li *ngFor="let user of usersForHeading">
+                      <a class="dropdown-item" (click)="selectedHead(user.id, user.name)">{{user.name}}</a></li>
+                  </ul>
+                </div>
+              </div>-->
+
+      <!--
+              <div class="form-group">
+                <label class="control-label">Deputy</label>
+                <div class="dropdown navlink" appDropdown>
+                  <button class="btn btn-secondary btn-block dropdown-toggle" style="cursor: pointer;"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selectedDepName}}
+                  </button>
+                  <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+                    <li *ngFor="let user of usersForHeading">
+                      <a class="dropdown-item" (click)="selectedDep(user.id, user.name)">{{user.name}}</a></li>
+                  </ul>
+                </div>
+              </div>
+      -->
+      <!--</div>-->
+
+    </div>
+    <!-- Success message -->
+    <div class="alert alert-success col-md-6" *ngIf="successInfo">
+      Division successfully added!
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="errorInfo">
+      Failed to add division...
+    </div>
+    <div class="alert alert-warning col-md-6" *ngIf="errorValidateInfo">
+      Fill in all required fields.
+    </div>
+    <!-- Button -->
+    <hr>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success col-md-6">CREATE DIVISION</button>
+    </div>
+
+  </form>
+</div>

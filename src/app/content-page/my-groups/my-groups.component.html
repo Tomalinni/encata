@@ -1,0 +1,48 @@
+<div class="row-fluid">
+
+  <div align="center" *ngIf="!isLoaded">
+    <div class="loader"></div>
+  </div>
+
+  <div class="span8" *ngIf="isLoaded">
+
+    <!--<div class="component-background">-->
+
+    <div *ngIf="getGroupsErrorInfo" class="alert alert-danger">We can not get a list of your groups...</div>
+    <div *ngIf="noGroupsInfo" class="alert alert-light" align="center"><b>You are not a member of any groups.</b></div>
+
+    <table *ngIf="!noGroupsInfo && !getGroupsErrorInfo && myGroupList != null" class="table">
+      <thead class="thead-default-back">
+      <tr>
+        <th class="th-title">Title</th>
+        <th>Branch</th>
+        <th>Members</th>
+        <th>Head</th>
+        <th>Deputy</th>
+      </tr>
+      </thead>
+      <tbody class="table-body">
+      <tr *ngFor="let mygroup of myGroupList">
+        <td><a routerLink="/dashboard/groups/{{mygroup.id}}" class="btn btn-secondary">{{mygroup.name}}</a></td>
+        <td><span *ngIf="mygroup.signBranch"><img src="assets/images/branch.png" width="16px" height="16px"></span>
+          <span *ngIf="!mygroup.signBranch"><img src="assets/images/no-branch.png" width="16px" height="16px"></span>
+        </td>
+        <td><span class="">{{mygroup.activeUsers.length}}<span *ngIf="mygroup.inactiveUsers.length > 0">/<span
+          class="not-color">{{mygroup.inactiveUsers.length}}</span></span></span>
+        </td>
+
+        <td><span class="small-text not-color" *ngIf="mygroup.head === null">Not Assigned</span>
+          <span class="small-text" *ngIf="mygroup.head != null">{{mygroup.head.lastName}} {{mygroup.head.firstName}} {{mygroup.head.patronymicName}}<br/></span>
+        </td>
+        <td><span class="small-text not-color" *ngIf="mygroup.deputy === null">Not Assigned</span>
+          <span class="small-text" *ngIf="mygroup.deputy != null">{{mygroup.deputy.lastName}} {{mygroup.deputy.firstName}} {{mygroup.deputy.patronymicName}}</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+

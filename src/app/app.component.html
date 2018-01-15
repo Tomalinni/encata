@@ -1,0 +1,44 @@
+<!-- Modal -->
+<!--col-lg-4 col-md-4 col-sm-6 col-xl-10-->
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>{{modalTaskInfo.source}}</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="info-fields"><b>Description:</b></div>
+        {{modalTaskInfo.description}}
+        <hr/>
+        <div class="info-fields">
+          <div class="row">
+            <div class="col-md-6">
+              <span *ngIf="modalTaskInfo.number != null"><b>Number:</b> {{modalTaskInfo.number}}<br/></span>
+              <span *ngIf="modalTaskInfo.author != null"><b>Author:</b> {{modalTaskInfo.author}}<br/></span>
+              <span *ngIf="modalTaskInfo.executor != null"><b>Executor:</b> {{modalTaskInfo.executor}}<br/></span>
+            </div>
+            <div class="col-md-6">
+              <span *ngIf="modalTaskInfo.startDate != null"><b>Start date:</b> {{modalTaskInfo.startDate}}<br/></span>
+              <span *ngIf="modalTaskInfo.date != null"><b>Date:</b> {{modalTaskInfo.date}}<br/></span>
+              <span *ngIf="modalTaskInfo.endDate != null"><b>End date:</b> {{modalTaskInfo.endDate}}<br/></span>
+              <span *ngIf="modalTaskInfo.deadLine != null"><b>End date:</b> {{modalTaskInfo.deadLine}}<br/></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        <!--<button *ngIf="modalTaskInfo.source === 'Title task'" type="button" class="btn btn-primary">Open in Planfix-->
+        <!--</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

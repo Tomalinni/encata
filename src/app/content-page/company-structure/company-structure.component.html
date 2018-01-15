@@ -1,0 +1,49 @@
+<div class="row-fluid">
+
+  <div align="center" *ngIf="!isLoaded">
+    <div class="loader"></div>
+  </div>
+
+  <div class="span8" *ngIf="isLoaded">
+
+    <!--<div class="component-background">-->
+
+    <div *ngIf="getGroupsErrorInfo" class="alert alert-danger">We can not get a list of groups...</div>
+    <div *ngIf="noGroupsInfo" class="alert alert-light" align="center"><b>The list of divisions is empty.</b></div>
+
+    <table *ngIf="!noGroupsInfo && !getGroupsErrorInfo" class="table">
+      <thead class="thead-default-back">
+      <tr>
+        <th class="th-title" width="20%">Title</th>
+        <th>Branch</th>
+        <th>Members</th>
+        <th>Head</th>
+        <th>Deputy</th>
+      </tr>
+      </thead>
+      <tbody class="table-body">
+      <tr *ngFor="let agroup of allGroupList">
+        <td width="20%"><a routerLink="/dashboard/groups/{{agroup.id}}" class="btn btn-secondary">{{agroup.name}}</a>
+        </td>
+        <td><span *ngIf="agroup.signBranch"><img src="assets/images/branch.png" width="16px" height="16px"></span>
+          <span *ngIf="!agroup.signBranch"><img src="assets/images/no-branch.png" width="16px" height="16px"></span>
+        </td>
+        <td><span class="">{{agroup.activeUsers.length}}<span *ngIf="agroup.inactiveUsers.length > 0">/<span
+          class="not-color">{{agroup.inactiveUsers.length}}</span></span></span>
+        </td>
+
+        <td><span class="small-text not-color" *ngIf="agroup.head === null">Not Assigned</span>
+          <span class="small-text" *ngIf="agroup.head != null">{{agroup.head.lastName}} {{agroup.head.firstName}} {{agroup.head.patronymicName}}<br/></span>
+        </td>
+        <td><span class="small-text not-color" *ngIf="agroup.deputy === null">Not Assigned</span>
+          <span class="small-text" *ngIf="agroup.deputy != null">{{agroup.deputy.lastName}} {{agroup.deputy.firstName}} {{agroup.deputy.patronymicName}}</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+

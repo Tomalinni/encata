@@ -1,0 +1,62 @@
+.full-width {
+  /*width: 315px;*/
+  top: 2.8rem;
+}
+
+.list-group-item-text {
+  font-size: small;
+  color: #47444f;
+  display: block;
+}
+
+.list-group-item-heading {
+  font-size: medium;
+  color: #171514;
+  display: block;
+}
+
+.small-text {
+  font-size: smaller;
+  display: block;
+}
+
+.list-group-item {
+  display: block;
+  border-radius: 0;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  background-color: #eaeaea;
+}
+
+.btn {
+  width: 80%;
+}
+
+.activestaus {
+  color: #ffffff;
+  background-color: #efefef;
+}
+
+.task-alert {
+  margin: 0px;
+  padding: 5px;
+}
+
+.btn {
+  border-color: #6d6d6d;
+}
+
+.alert-light {
+  color: #969696;
+  padding-top: 25px;
+}
+
+.small-text {
+  font-size: smaller;
+}
+
+.big-text {
+  font-size: large;
+}

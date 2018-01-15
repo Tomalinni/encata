@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Member</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="form-group">
+    <label class="control-label">User</label>
+    <div class="dropdown navlink" appDropdown>
+      <button class="btn btn-block btn-block btn-secondary dropdown-toggle" style="cursor: pointer;"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!--[(ngModel)]= "selectedPosition"-->
+        <span *ngIf="selectedUser">{{selectedUser.firstName + ' ' + selectedUser.lastName}}
+        </span>
+
+      </button>
+      <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+        <li *ngFor="let user of users">
+          <button class="dropdown-item" (click)="selectUser(user)">{{user.firstName + ' ' + user.lastName}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+   <div class="form-group">
+    <label class="control-label">Position</label>
+    <div class="dropdown navlink" appDropdown>
+      <button class="btn btn-block btn-block btn-secondary dropdown-toggle" style="cursor: pointer;"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!--[(ngModel)]= "selectedPosition"-->
+        <div *ngIf="selectedPosition">{{selectedPosition.name}}</div>
+      </button>
+      <ul class="dropdown-menu btn-block dropdown-menu-left navlink">
+        <li *ngFor="let position of group.positions">
+          <button class="dropdown-item" (click)="selectedP(position)">{{position.name}}</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success col-md-6" *ngIf="successInfo">
+  User added to group successfully!
+</div>
+
+<div class="alert alert-success col-md-6" *ngIf="already">
+  User is already in group
+</div>
+
+<div class="alert alert-danger col-md-6" *ngIf="errorInfo">
+  There are some internal errors with request
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="addMember()">
+      Add
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close('Close click')">
+      Cancel
+    </button>
+</div>
+
+
+

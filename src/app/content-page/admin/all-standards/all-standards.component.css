@@ -1,0 +1,40 @@
+.btn {
+  background-color: transparent;
+  border-color: transparent;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #e2e2e2;
+  font-weight: bold;
+  /*border-bottom-color: #848484;*/
+}
+
+.thead-default-back {
+  background-color: #171514;
+  color: #dbdbdb;
+}
+
+.table-body {
+  background-color: #ffffff;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+}
+
+.th-title {
+  padding-left: 30px;
+}
+
+.not-color {
+  color: #838383;
+}
+
+.small-text {
+  font-size: small;
+}

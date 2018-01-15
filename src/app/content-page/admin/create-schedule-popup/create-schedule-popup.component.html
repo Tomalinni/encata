@@ -1,0 +1,121 @@
+<div class="component-background">
+
+  <form class="well form-horizontal" (ngSubmit)="createSchedule(f)" #f="ngForm">
+
+
+    <!-- Form Name -->
+    <h3><b>Adding schedules</b></h3>
+    <hr>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">The begining of the work day</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="workStart" name="workStart" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">The begining of the first break</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="firstBreakStart" name="firstBreakStart" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">End of the first break</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="firstBreakEnd" name="firstBreakEnd" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">The begining of the lunch</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="lunchStart" name="lunchStart" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">End of the lunch</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="lunchEnd" name="lunchEnd" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">The begining of the second break</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="secondBreakStart" name="secondBreakStart" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">End of the second break</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="secondBreakEnd" name="secondBreakEnd" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label">End of the working day</label>
+      <div class="col-md-6 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"></span>
+          <input id="workEnd" name="workEnd" placeholder="00:00" class="form-control" type="text"
+                 ngModel required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success message -->
+    <div class="alert alert-success col-md-6" *ngIf="successInfo">
+      Schedule successfully added!
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="errorInfo">
+      Failed to add schedule...
+    </div>
+
+    <!-- Button -->
+    <hr>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success col-md-6">ADD SCHEDULE</button>
+    </div>
+
+  </form>
+</div>
